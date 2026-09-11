@@ -1,0 +1,12 @@
+{
+  "name": "gophish-demo",
+  "version": "1.0.0",
+  "description": "Cybersecurity masters project - phishing awareness demo site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

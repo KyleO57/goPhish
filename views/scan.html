@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Security Portal</title>
+  <link rel="stylesheet" href="/css/portal-card.css" />
+  <link rel="stylesheet" href="/css/popup-storm.css" />
+  <link rel="stylesheet" href="/css/scan.css" />
+</head>
+<body>
+  <div class="watermark">INTERNAL USE ONLY</div>
+
+  <!-- Backdrop: the frozen "final frame" carried over from the landing page -->
+  <div class="backdrop" id="backdrop">
+    <div id="frozen-card-slot"></div>
+  </div>
+  <div class="popup-layer background-layer" id="popup-layer"></div>
+
+  <!-- The "real" popup -- actually just an absolutely positioned div in the page -->
+  <div class="overlay" id="overlay">
+    <div class="fake-window" id="fake-window">
+      <div class="fake-titlebar">
+        <span class="fake-icon">&#9888;</span>
+        <span class="fake-title">Security Warning</span>
+        <span class="fake-close" id="fake-close">&times;</span>
+      </div>
+      <div class="fake-body">
+        <div class="fake-icon-large">&#9888;</div>
+        <div class="fake-text">
+          <p class="fake-heading">Your computer may be infected</p>
+          <p>Our scan detected <strong>3 potential threats</strong> on this device. Running
+          a security scan is recommended to protect your files and personal data.</p>
+        </div>
+      </div>
+      <div class="fake-actions">
+        <a href="/scan/download" id="scan-btn" class="btn btn-primary">Download &amp; Scan</a>
+        <button class="btn btn-secondary" id="dismiss-btn">Remind Me Later</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">&copy; 2019 Acme Global Systems. All rights reserved.</div>
+
+  <script src="/js/popup-storm.js"></script>
+  <script src="/js/scan.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Security Portal</title>
+  <link rel="stylesheet" href="/css/portal-card.css" />
+  <link rel="stylesheet" href="/css/popup-storm.css" />
+  <link rel="stylesheet" href="/css/landing.css" />
+</head>
+<body>
+  <div class="watermark">INTERNAL USE ONLY</div>
+
+  <main class="portal-card flicker" id="portal-card">
+    <div class="portal-header">
+      <svg class="portal-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+      <span class="portal-org">Acme Global &mdash; IT Security</span>
+      <svg class="padlock" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" title="Connection status">
+        <rect x="5" y="11" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M8 11V8a4 4 0 0 1 7.5-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="portal-body">
+      <h1>Verifying Session</h1>
+      <p>We&rsquo;re confirming this device meets current compliance requirements before continuing. This is automatic and should only take a moment. Please do not close this window.</p>
+
+      <div class="spinner" id="spinner"></div>
+
+      <div class="status-lines">
+        <div class="status-line"><span class="label">Session ID</span><span id="session-id"></span></div>
+        <div class="status-line"><span class="label">Node</span><span id="node-ip"></span></div>
+        <div class="status-line"><span class="label">Status</span><span id="status-msg">Authenticating device</span></div>
+      </div>
+    </div>
+
+    <div class="portal-progress">
+      <div class="portal-progress-fill" id="redirect-fill"></div>
+    </div>
+  </main>
+
+  <div class="popup-layer" id="popup-layer"></div>
+
+  <div class="footer-note">&copy; 2019 Acme Global Systems. All rights reserved.</div>
+
+  <script src="/js/popup-storm.js"></script>
+  <script src="/js/landing.js"></script>
+</body>
+</html>
