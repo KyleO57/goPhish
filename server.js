@@ -1,8 +1,49 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config()
 
 const app = express();
+
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+const VISIT_COOKIE = 'visited';
+const TELEGRAM_API = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[c]));
+}
+
+async function notifyTelegram(req) {
+  const h = req.headers;
+  const ip = h['x-forwarded-for']?.split(',')[0].trim() || req.socket.remoteAddress;
+  const text = [
+    '<b>New visitor</b>',
+    `<b>Path:</b> ${escapeHtml(req.path)}`,
+    `<b>IP:</b> ${escapeHtml(ip)}`,
+    `<b>User-Agent:</b> ${escapeHtml(h['user-agent'] || '-')}`,
+    `<b>Referer:</b> ${escapeHtml(h['referer'] || '-')}`,
+    `<b>Accept-Language:</b> ${escapeHtml(h['accept-language'] || '-')}`,
+    `<b>Time:</b> ${new Date().toISOString()}`,
+  ].join('\n');
+
+  const res = await fetch(TELEGRAM_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: process.env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML' }),
+  });
+  if (!res.ok) console.error('Telegram notify failed:', res.status, await res.text());
+}
+
+app.use((req, res, next) => {
+  if (req.method === 'GET' && !req.cookies[VISIT_COOKIE]) {
+    res.cookie(VISIT_COOKIE, '1', { maxAge: 1000 * 60 * 60 * 24 * 365, httpOnly: true, sameSite: 'lax' });
+    notifyTelegram(req).catch(err => console.error('Telegram notify error:', err));
+  }
+  next();
+});
+
 const PORT = process.env.PORT || 3000;
 
 const LOGS_DIR = path.join(__dirname, 'logs');

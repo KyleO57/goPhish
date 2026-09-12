@@ -42,3 +42,9 @@
 2026-09-11T21:57:05.282Z | event=scan_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36" | ref="http://localhost:3000/" | path=/scan
 2026-09-11T21:57:16.219Z | event=landing_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36" | ref="-" | path=/
 2026-09-11T21:57:19.421Z | event=scan_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36" | ref="http://localhost:3000/" | path=/scan
+2026-09-12T19:16:00.035Z | event=landing_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15" | ref="-" | path=/
+2026-09-12T19:16:03.270Z | event=scan_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15" | ref="http://localhost:3000/" | path=/scan
+2026-09-12T19:21:42.139Z | event=landing_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15" | ref="-" | path=/
+2026-09-12T19:21:45.309Z | event=scan_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15" | ref="http://localhost:3000/" | path=/scan
+2026-09-12T19:25:23.540Z | event=landing_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15" | ref="-" | path=/
+2026-09-12T19:25:26.930Z | event=scan_page_visit | ip=::1 | ua="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15" | ref="http://localhost:3000/" | path=/scan
