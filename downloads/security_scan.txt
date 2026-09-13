@@ -1,1 +1,35 @@
-GOT YA
+// NAME: GO-PHISH-MALWARE
+
+// DESCRIPTION: This document serves as psuedo-code and outlines how data exfiltration/command control will be performed via a Telegram C2 bot
+
+// ASSUMPTIONS: Prior to the device downloading this malware, the phishing web application will identify the user agent that visited the site. Based on this information, the server will deliver malware that is compatible with the host's operating system
+
+BASE_URL = "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}"
+
+// DATA EXFILTRATION
+// Step 1
+Send beacon to C2 infrastructure via Telegram's API /sendMessage endpoint to inform the adversary(s) of a successful exploitation.
+
+// Step 2
+Iterate through the device's file system and identify any sensitive files that may be of interest through filename regular expression matching. E.g. '.*[pP]assword.*', '.*\.key$', '.*\.cer$', '.*\.pem$'
+
+// Step 3
+Utilize Telegram’s /sendDocument endpoint to exfiltrate the sensitive files to the adversary(s).
+
+// COMMAND CONTROL 
+// Commands
+{"/screenshot": "This command will take a screenshot of the victim's computer then exfiltrate the image via Telegram's /sendDocument endpoint"}
+{"/destroy" : "This command will delete all sensitive files identified in the data exfiltration portion of the malware"}
+{"/ransom" : "This command will encrypt all sensitive files identified in the data exfiltration portion of the malware. A pop-up will appear on the victim's device informing the victim of the encryption and provide contact information to negotiate with the adversary"}
+
+// Step 1
+Within a while() loop, iteaitivley poll the /getUpdate API endpoint to receive commands from the adversary’s Telegram chat. The commands are defined in the //Commands section of this document.
+
+// Step 2
+Parse the response from /getUpdate and identify if any commands were given
+
+// Step 3
+If a predefined command was identified, execute the command
+
+// Step 4
+Update the getUpdate offset such that only new commands are received 
